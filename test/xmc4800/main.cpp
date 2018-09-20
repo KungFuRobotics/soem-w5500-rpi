@@ -11,8 +11,11 @@
  * Port for Raspberry pi by Ho Tam - thanhtam.h[at]gmail.com
  */
 
+#include <ros/ros.h>
  #include <stdlib.h>
 #include <signal.h>
+#include <tiff.h>
+#include <jmorecfg.h>
 
 #include "pdo_def.h"
 
@@ -324,6 +327,7 @@ void catch_signal(int sig)
 
 int main(int argc, char *argv[])
 {
+    ros::init(argc, argv, "soem-w5500-rpi");
 	signal(SIGTERM, catch_signal);
 	signal(SIGINT, catch_signal);
 
